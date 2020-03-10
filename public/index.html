@@ -22,10 +22,15 @@
         <svg class="azul" data-src="Heart.svg" width="190" height="237" viewbox="0 0 380 475"></svg>
     </p>
     <script>
-    /* Cargamos los svg */
-    document.querySelectorAll('svg[data-src]').forEach(svg => {
-        console.log(svg.dataset.src);
-        fetch(svg.dataset.src).then(response => response.text()).then(xml => svg.innerHTML = xml);
+    /* Cargamos los svg tras la carga del DOM */
+    document.addEventListener("DOMContentLoaded", () => {
+        /* Buscamos cada elemento svg con el atributo "src" */
+        document.querySelectorAll('svg[data-src]').forEach(svg => {
+        /* Cargamos el contenido en su HTML interno */
+            fetch(svg.dataset.src)
+              .then(response => response.text())
+              .then(xml => svg.innerHTML = xml);
+        });
     });
     </script>
  </body>
