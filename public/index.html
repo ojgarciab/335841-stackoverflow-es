@@ -4,9 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pruebas SVG</title>
+    <style>
+    .verde { fill: #aaffaa; }
+    .verde path { fill: #00ff00; }
+    .azul { fill: #aaaaff; }
+    .azul path { fill: #0000ff; }
+    </style>
   </head>
   <body>
-    <h1>Carga de SVG externo</h1>
-    <svg><use xlink:href="Heart.svg"></svg>
+    <h1>Carga de SVGs externos</h1>
+    <p>
+        <svg class="verde" width="190" height="237" viewbox="0 0 380 475"><use xlink:href="Heart.svg#svg2"></svg>
+        <svg class="azul" width="190" height="237" viewbox="0 0 380 475"><use xlink:href="Heart.svg#svg2"></svg>
+    </p>
+    <p>
+        <svg class="verde" data-src="Heart.svg" width="190" height="237" viewbox="0 0 380 475"></svg>
+        <svg class="azul" data-src="Heart.svg" width="190" height="237" viewbox="0 0 380 475"></svg>
+    </p>
+    <script>
+    /* Cargamos los svg */
+    document.querySelectorAll('svg[data-src]').forEach(svg => {
+        console.log(svg.dataset.src);
+        fetch(svg.dataset.src).then(response => response.text()).then(xml => svg.innerHTML = xml);
+    });
+    </script>
  </body>
 </html>
