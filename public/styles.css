@@ -1,0 +1,17 @@
+/* El SVG completo tendrá el estilo de relleno verde claro */
+.verde { fill: #aaffaa; }
+/* Si se tiene acceso a los elementos "path", se cambiará el relleno por un verde más oscuro */
+.verde path { fill: #00ff00; }
+/* Con el azul hacemos igual, el SVG completo tendrá un relleno azul claro */
+.azul { fill: #aaaaff; }
+/* Si conseguimos acceder a los elementos "path" cambiamos el relleno por un azul oscuro */
+.azul path { fill: #0000ff; }
+
+/*-------------------- Estilos para <object>*/
+.camino { fill:#00ff00; }
+
+/*
+No funciona 🤔...
+.verde .camino { fill:#00ff00; }
+.azul .camino { fill:#0000ff; }
+*/
