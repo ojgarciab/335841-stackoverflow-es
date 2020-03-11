@@ -26,6 +26,11 @@
         <svg class="verde" data-src="Heart.svg" width="190" height="237" viewbox="0 0 380 475"></svg>
         <svg class="azul" data-src="Heart.svg" width="190" height="237" viewbox="0 0 380 475"></svg>
     </p>
+    <h1>Carga de SVGs externos (DOM inaccesible)</h1>
+    <p>
+        <object class="verde" data="Heart.svg" type="image/svg+xml" width="190" height="237" viewbox="0 0 380 475"></object>
+        <object class="azul" data="Heart.svg" type="image/svg+xml" width="190" height="237" viewbox="0 0 380 475"></object>
+    </p>
     <script>
     /* Cargamos los svg tras la carga del DOM */
     document.addEventListener("DOMContentLoaded", () => {
